@@ -62,56 +62,45 @@ const longestRiver = (allRivers) => {
 
     return longestRiver
 }
-// Log out a list of the cheapest trails of price $
+// Return the cheapest trails of price $
 const cheapTrails = (trail) => {
             let cheapTrail = `${trail.trailName} at Price: ${trail.price}`;
             return cheapTrail;
         }
         
 
-// Log out a list of the most expensive trails of price $$$$-$$$$$
+// Return the most expensive trails of price $$$$-$$$$$
 const expensiveTrails = (trail) => {
             let expensiveTrail = `${trail.trailName} at Price: ${trail.price}`;
             return expensiveTrail;
         }
         
 
-// Log out a list of the cheapest rivers of price $
-const cheapRivers = (allRivers) => {
-    for (const river of allRivers) {
-        if (river.price === "$") {
+// Return the cheapest rivers of price $
+const cheapRivers = (river) => {
             let cheapRiver = `${river.river} at Price: ${river.price}`;
             return cheapRiver;
         }
         
-    }
-}
-// Log out a list of the most expensive rivers of price $$$$-$$$$$
-const expensiveRivers = (allRivers) => {
-    for (const river of allRivers) {
-        if (river.price === "$$$$" || river.price === "$$$$$") {
+
+// Return the most expensive rivers of price $$$$-$$$$$
+const expensiveRivers = (river) => {
             let expensiveRiver = `${river.river} at Price: ${river.price}`;
             return expensiveRiver;
         }
         
-    }
-}
-// Log out formatted info about each trail
-const trailInfo = (trails) => {
-    for (const trail of trails) {
+// Return formatted info about each trail
+const trailInfo = (trail) => {
         let trailMessage = `${trail.trailName} starts at [${trail.latitude}, ${trail.longitude}] and is ${trail.length} kilometers long. The highlighted plant for the trip is ${trail.plantHighlight}.`;
-        console.log(trailMessage);  
-        console.log("") 
+        return trailMessage;
     }
-}
+
 // Log out formatted info about each river tour
-const riverInfo = (rivers) => {
-    for (const riverTrail of rivers) {
-        let riverMessage = `${riverTrail.river} starts at [${riverTrail.latitude}, ${riverTrail.longitude}] and is ${riverTrail.length} kilometers long. The unique fish for the trip is ${riverTrail.uniqueFish}.`;
-        console.log(riverMessage);  
-        console.log("") 
+const riverInfo = (river) => {
+        let riverMessage = `${river.river} starts at [${river.latitude}, ${river.longitude}] and is ${river.length} kilometers long. The unique fish for the trip is ${river.uniqueFish}.`;
+        return riverMessage;
     }
-}
+
 
 // Export functions 
 module.exports = {

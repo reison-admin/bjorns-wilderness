@@ -28,7 +28,7 @@ console.log(`
 console.log('***************************************************')
 console.log('*****              T R A I L S                *****')
 console.log('***************************************************')
-const trailTotal = totalTrailMiles(trails)
+const trailTotal = Math.floor(totalTrailMiles(trails) * 10) / 10
 console.log(`We service ${trailTotal} kilometers of wilderness trails across the US`)
 
 const shortTrail = shortestTrail(trails)
@@ -36,19 +36,6 @@ console.log(`The shortest trail is ${shortTrail} kilometers`)
 
 const longest = longestTrail(trails)
 console.log(`The longest trail is ${longest} kilometers`)
-
-console.log("***************************************************")
-console.log("*****              R I V E R S                *****")
-console.log("***************************************************")
-
-const riverTotalLength = totalRiverMiles(rivers)
-console.log(`We offer expert guidance on ${riverTotalLength} kilometers of scenic rivers across the US`)
-
-const shortRiver = shortestRiver(rivers)
-console.log(`The shortest river is ${shortRiver} kilometers`)
-
-const longRiver = longestRiver(rivers)
-console.log(`The longest river is ${longRiver} kilometers`)
 
 console.log("----------")
 console.log("The least expensive trails are:");
@@ -74,19 +61,52 @@ console.log("");
 console.log("TRAIL DETAILS:");
 console.log("----------------------------------");
 
-trailInfo(trails);
+for (const trail of trails) {
+    console.log(trailInfo(trail));
+    console.log("")
+}
+console.log("***************************************************")
+console.log("*****              R I V E R S                *****")
+console.log("***************************************************")
+
+const riverTotalLength = totalRiverMiles(rivers)
+console.log(`We offer expert guidance on ${riverTotalLength} kilometers of scenic rivers across the US`)
+
+const shortRiver = shortestRiver(rivers)
+console.log(`The shortest river is ${shortRiver} kilometers`)
+
+const longRiver = longestRiver(rivers)
+console.log(`The longest river is ${longRiver} kilometers`)
 
 console.log("");
-console.log("RIVER DETAILS:");
-console.log("----------------------------------");
-
-riverInfo(rivers);
 
 console.log("----------")
 console.log("The least expensive river tours are:");
 console.log("");
-console.log(cheapRivers(rivers));
+
+for (const river of rivers) {
+    if (river.price === "$") {
+        console.log(cheapRivers(river));
+    }
+}
+
 console.log("----------")
 console.log("The most expensive river tours are:");
 console.log("");
-console.log(expensiveRivers(rivers));
+
+for (const river of rivers) {
+    if (river.price === "$$$$" || river.price === "$$$$$") {
+        console.log(expensiveRivers(river));
+    }
+}
+
+console.log("RIVER DETAILS:");
+console.log("----------------------------------");
+
+for (const river of rivers) {
+    console.log(riverInfo(river));
+    console.log("") 
+}
+
+
+
